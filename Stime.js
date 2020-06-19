@@ -2,7 +2,7 @@ const discord = require(`discord.js`);
 const bot = new discord.Client();
 const embed = new discord.MessageEmbed();
 
-const token = `NzIzMjI2ODkzOTE4NDA0NjUw.XuwDNg.58g6y5tYLrWGk_k2Hf1L59ZBQic`;
+const token = `NzIzMjI2ODkzOTE4NDA0NjUw.XuzhZg.6qzPjOSUmKuxId4TT0PnhwwHAkY`;
 
 bot.login(token);
 
