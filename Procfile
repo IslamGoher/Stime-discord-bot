@@ -1,1 +1,1 @@
-web: node Stime.js
+web: node stime.js
