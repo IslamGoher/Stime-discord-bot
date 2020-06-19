@@ -1,0 +1,1 @@
+Stime is bot in discord for remind you to studying and make some studying stuff
