@@ -1,8 +1,14 @@
+const express = require(`express`);
+const app = express();
 const discord = require(`discord.js`);
 const bot = new discord.Client();
 const embed = new discord.MessageEmbed();
 
 const token = `NzIzMjI2ODkzOTE4NDA0NjUw.XuzhZg.6qzPjOSUmKuxId4TT0PnhwwHAkY`;
+
+app.get(`/`, (req, res) => {
+    res.send(`<h1>this is Stime Discord bot</h1>`);
+})
 
 bot.login(token);
 
@@ -52,7 +58,7 @@ bot.on(`message`, (message) => {
 
     else if(message.content === `=help`) {
         message.reply(`
-        '=ST' => study time : you can't speak for 25 minutes
+        '=st' => study time : you can't speak for 25 minutes
         '=rem' => reminder : remind you for studying every 5 minutes
         '=stop' => server unmute
         '=help' => information
