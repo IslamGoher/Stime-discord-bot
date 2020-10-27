@@ -1,4 +1,5 @@
 const express = require(`express`);
+const path = require(`path`);
 const app = express();
 const discord = require(`discord.js`);
 const bot = new discord.Client();
@@ -7,8 +8,14 @@ const PORT = process.env.PORT || 80;
 
 const token = `NzIzMjI2ODkzOTE4NDA0NjUw.XuzhZg.6qzPjOSUmKuxId4TT0PnhwwHAkY`;
 
+app.use(express.static(`public`));
+
 app.get(`/`, (req, res) => {
-    res.send(`<h1>this is Stime Discord bot</h1>`);
+    res.sendFile(path.join(__dirname, `./views/home.html`));
+});
+
+app.use((req, res) => {
+    res.redirect(`/`);
 })
 
 bot.login(token);
@@ -18,7 +25,7 @@ bot.on(`ready`, () => {
 });
 
 bot.on(`message`, (message) => {
-    if(message.content === `=st`){
+    if(message.content === `$st`){
         if(message.member.voice.serverMute === true) {
             message.reply(`you already study`);
             return;
@@ -41,7 +48,7 @@ bot.on(`message`, (message) => {
         return;
     }
 
-    else if(message.content === `=rem`) {
+    else if(message.content === `$rem`) {
         if(message.member.voice.serverMute === true) {
             message.reply(`you already study`);
             return;
@@ -57,17 +64,17 @@ bot.on(`message`, (message) => {
         }
     }
 
-    else if(message.content === `=help`) {
+    else if(message.content === `$help`) {
         message.reply(`
-        '=st' => study time : you can't speak for 25 minutes
-        '=rem' => reminder : remind you for studying every 5 minutes
-        '=stop' => server unmute
-        '=help' => information
+        '$st' => study time : you can't speak for 25 minutes
+        '$rem' => reminder : remind you for studying every 5 minutes
+        '$stop' => server unmute
+        '$help' => recursion ;)
         `);
-        console.log(`${message.member.displayName}=help`);
+        console.log(`${message.member.displayName} $help`);
         return;
     }
-    else if(message.content === `=stop`) {
+    else if(message.content === `$stop`) {
         if(message.member.voice.serverMute === false) {
             message.reply(`you already have fun`);
             return;
