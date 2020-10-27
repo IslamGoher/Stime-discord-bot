@@ -30,6 +30,7 @@ bot.on(`message`, (message) => {
                 message.member.voice.channel.leave();
             },1500000);
         }
+        console.log(`${message.member.displayName}=st`);
         return;
     }
 
@@ -44,6 +45,7 @@ bot.on(`message`, (message) => {
         } else {
             message.reply(`OK, i'll remind you`);
             reminder(embed, message);
+            console.log(`${message.member.displayName}=rem`);
             return;
         }
     }
@@ -55,6 +57,7 @@ bot.on(`message`, (message) => {
         '=stop' => server unmute
         '=help' => information
         `);
+        console.log(`${message.member.displayName}=help`);
         return;
     }
     else if(message.content === `=stop`) {
@@ -64,10 +67,12 @@ bot.on(`message`, (message) => {
         }
         else if(!message.member.voice.channel){
             message.reply('You need to join a voice channel first!!');
+            console.log(`${message.member.displayName}=stop`);
             return;
         } else {
             message.reply('OK, have fun!!');
             message.member.voice.setMute(false);
+            console.log(`${message.member.displayName}=stop`);
             return;
         }
     }
