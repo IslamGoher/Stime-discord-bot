@@ -3,6 +3,7 @@ const app = express();
 const discord = require(`discord.js`);
 const bot = new discord.Client();
 const embed = new discord.MessageEmbed();
+const PORT = process.env.PORT || 80;
 
 const token = `NzIzMjI2ODkzOTE4NDA0NjUw.XuzhZg.6qzPjOSUmKuxId4TT0PnhwwHAkY`;
 
@@ -96,4 +97,8 @@ function reminder(x, y) {
             reminder(x, y);
         }
     },300000);
-}
+};
+
+app.listen(PORT, () => {
+    console.log(`listening to port ${PORT} ...`);
+});
