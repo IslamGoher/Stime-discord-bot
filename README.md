@@ -1,1 +1,2 @@
-Stime is bot in discord for remind you to studying and make some studying stuff
+Stime is a discord bot to organize your study sessions using pomodoro technique.
+visit https://stime-bot.herokuapp.com/ for the docs
