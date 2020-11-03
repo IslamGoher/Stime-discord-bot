@@ -1,1 +1,1 @@
-web: node stime.js
+web: npm start
