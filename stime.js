@@ -5,6 +5,7 @@ const discord = require(`discord.js`);
 const bot = new discord.Client();
 const embed = new discord.MessageEmbed();
 const dotenv = require(`dotenv`).config();
+const fetch = require(`node-fetch`);
 const PORT = process.env.PORT || 3000;
 
 app.use(express.static(`public`));
@@ -15,7 +16,15 @@ app.get(`/`, (req, res) => {
 
 app.use((req, res) => {
     res.redirect(`/`);
-})
+});
+
+(
+    async () => {
+        await setInterval(async () => {
+            await fetch(process.env.BOT_URL);
+        }, 600000);
+    }
+)();
 
 bot.login(process.env.BOT_TOKEN);
 
