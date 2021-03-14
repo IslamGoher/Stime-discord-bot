@@ -4,9 +4,8 @@ const app = express();
 const discord = require(`discord.js`);
 const bot = new discord.Client();
 const embed = new discord.MessageEmbed();
-const PORT = process.env.PORT || 80;
-
-const token = `NzIzMjI2ODkzOTE4NDA0NjUw.XuzhZg.6qzPjOSUmKuxId4TT0PnhwwHAkY`;
+const dotenv = require(`dotenv`).config();
+const PORT = process.env.PORT || 3000;
 
 app.use(express.static(`public`));
 
@@ -18,7 +17,7 @@ app.use((req, res) => {
     res.redirect(`/`);
 })
 
-bot.login(token);
+bot.login(process.env.BOT_TOKEN);
 
 bot.on(`ready`, () => {
     console.log(`Let's study!!`);
