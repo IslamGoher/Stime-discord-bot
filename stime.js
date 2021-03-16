@@ -46,6 +46,7 @@ bot.on(`message`, (message) => {
             message.member.voice.channel.join();
             message.member.voice.channel.leave();
             message.member.voice.setMute(true);
+            message.member.voice.setDeaf(true);
             setTimeout(() => {
                 message.member.voice.setMute(false);
                 message.member.voice.channel.join();
