@@ -49,6 +49,7 @@ bot.on(`message`, (message) => {
             message.member.voice.setDeaf(true);
             setTimeout(() => {
                 message.member.voice.setMute(false);
+                message.member.voice.setDeaf(false);
                 message.member.voice.channel.join();
                 message.member.voice.channel.leave();
             },1500000);
@@ -95,6 +96,7 @@ bot.on(`message`, (message) => {
         } else {
             message.reply('OK, have fun!!');
             message.member.voice.setMute(false);
+            message.member.voice.setDeaf(false);
             console.log(`${message.member.displayName}=stop`);
             return;
         }
