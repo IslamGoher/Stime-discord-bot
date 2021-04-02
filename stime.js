@@ -18,13 +18,14 @@ app.use((req, res) => {
     res.redirect(`/`);
 });
 
-(
-    async () => {
-        await setInterval(async () => {
-            await fetch(process.env.BOT_URL);
-        }, 600000);
-    }
-)();
+// make application never sleeps
+// (
+//     async () => {
+//         await setInterval(async () => {
+//             await fetch(process.env.BOT_URL);
+//         }, 600000);
+//     }
+// )();
 
 bot.login(process.env.BOT_TOKEN);
 
